@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import PropTypes from 'prop-types';
 import { getMovieSearch } from 'api/AxiosRequests';
 
 import { MovieSearchForm, SearchField, SearchButton } from 'ui';
@@ -43,3 +44,7 @@ const MovieSearch = ({ onSubmit }) => {
 };
 
 export default MovieSearch;
+
+MovieSearch.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
