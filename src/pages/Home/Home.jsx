@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { getTrendingMedia } from 'api/AxiosRequests';
+import { useLocation } from 'react-router-dom';
+import {
+  MovieSearchSection,
+  MovieSearchList,
+  MovieSearchLink,
+  MovieSearchItem,
+} from 'ui';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
+  const location = useLocation();
 
   async function getTrendingMovies() {
     const foundMovies = await getTrendingMedia();
@@ -14,19 +21,21 @@ const HomePage = () => {
     getTrendingMovies();
   }, []);
 
-  console.log(movies);
-  console.log(movies[0]);
-
   return (
-    <ul>
-      {movies.map(({ id, title, name }) => {
-        return (
-          <li key={id}>
-            <Link to={`/movies/${id}`}>{title || name}</Link>
-          </li>
-        );
-      })}
-    </ul>
+    <MovieSearchSection>
+      <h1>Trending today:</h1>
+      <MovieSearchList>
+        {movies.map(({ id, title, name }) => {
+          return (
+            <MovieSearchItem key={id}>
+              <MovieSearchLink to={`/movies/${id}`} state={{ from: location }}>
+                {title || name}
+              </MovieSearchLink>
+            </MovieSearchItem>
+          );
+        })}
+      </MovieSearchList>
+    </MovieSearchSection>
   );
 };
 

@@ -1,14 +1,16 @@
-import { Link } from 'react-router-dom';
-import { NavigationList, NavigationItem } from 'ui';
+// import { NavLink } from 'react-router-dom';
+import { NavigationList, NavigationItem, ActivePageLink } from 'ui';
 
 const Navigation = () => {
   return (
     <NavigationList>
       <NavigationItem>
-        <Link to="/">Home</Link>
+        <ActivePageLink to="/" end>
+          Home
+        </ActivePageLink>
       </NavigationItem>
       <NavigationItem>
-        <Link to="/movies">Movies</Link>
+        <ActivePageLink to="/movies">Movies</ActivePageLink>
       </NavigationItem>
     </NavigationList>
   );
