@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 import HomePage from 'pages/Home';
-// import Movies from 'pages/Movies';
 import MovieItem from 'components/MovieItem';
 import MovieReviews from 'components/MovieReviews';
 import MovieCast from 'components/MovieCast';
