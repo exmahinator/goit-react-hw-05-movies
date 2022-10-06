@@ -1,4 +1,5 @@
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
@@ -66,3 +67,19 @@ export async function getMoviesReview(movieId) {
     Notify.failure('Sorry, there are no reviews...');
   }
 }
+
+getTrendingMediaById.propTypes = {
+  id: PropTypes.number.isRequired,
+};
+
+getMovieSearch.propTypes = {
+  query: PropTypes.string.isRequired,
+};
+
+getMoviesActorsCast.propTypes = {
+  movieId: PropTypes.number.isRequired,
+};
+
+getMoviesReview.propTypes = {
+  movieId: PropTypes.number.isRequired,
+};
