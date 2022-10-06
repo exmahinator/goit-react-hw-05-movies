@@ -1,5 +1,6 @@
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getMovieSearch } from 'api/AxiosRequests';
 import MovieSearch from 'components/MovieSearch';
 import {
@@ -23,6 +24,14 @@ const MoviesPage = () => {
 
     async function getMovieBySearch() {
       const data = await getMovieSearch(query);
+
+      if (data.length === 0) {
+        Notify.warning(
+          'There is no movie with this name! Look for another one!'
+        );
+        return;
+      }
+
       setMovie(data);
     }
 
