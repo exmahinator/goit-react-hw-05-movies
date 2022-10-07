@@ -1,4 +1,3 @@
-// import { NavLink } from 'react-router-dom';
 import { NavigationList, NavigationItem, ActivePageLink } from 'ui';
 
 const Navigation = () => {

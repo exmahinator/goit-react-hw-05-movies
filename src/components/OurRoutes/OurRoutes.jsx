@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 import HomePage from 'pages/Home';
-import MovieItem from 'components/MovieItem';
 import MovieReviews from 'components/MovieReviews';
 import MovieCast from 'components/MovieCast';
 import { MovieBackToLink } from 'ui';
 
 const Movies = lazy(() => import('../../pages/Movies'));
+const MovieItem = lazy(() => import('../../pages/MovieItem'));
 
 const OurRoutes = () => {
   return (

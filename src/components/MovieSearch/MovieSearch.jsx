@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import PropTypes from 'prop-types';
-// import { getMovieSearch } from 'api/AxiosRequests';
 
 import { MovieSearchForm, SearchField, SearchButton } from 'ui';
 
@@ -18,13 +17,6 @@ const MovieSearch = ({ onSubmit }) => {
       Notify.warning('Please enter some movie name!');
       return;
     }
-
-    // const data = await getMovieSearch(movieName.toLowerCase());
-
-    // if (data.length === 0) {
-    //   Notify.warning('There is no movie with this name! Look for another one!');
-    //   return;
-    // }
     onSubmit(movieName.toLowerCase());
     setMovieName('');
   };
